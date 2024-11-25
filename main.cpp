@@ -1,138 +1,74 @@
 #include <iostream>
 #include <windows.h>
 #include <cstdlib>
-#include <conio.h>
 
 using namespace std;
 
 string imie;
-char odp;
+int punkty = 0;
+
+string pytanie[] = {
+    "1. Kto jest glownym bohaterem w grze Skyrim?\n  a) Ulfric Stormcloak\n  b) Dovahkiin\n  c) Esbern\n  d) Paarthurnax",
+    "2. Jaka rase postaci gracz moze wybrac na poczatku gry?\n  a) Nord\n  b) Argonianin\n  c) Krasnolud\n  d) Elf",
+    "3. Jakie studio stworzylo Skyrim?\n  a)Electronic Arts Inc.\n  b) Ubisoft\n  c)  Bethesda\n  d) Rockstar Games", 
+    "4. Jak nazywa sie glowny smoczy bog w Skyrim?\n  a) Akatosh\n  b) Arkay\n  c) Talos\n  d) Shor",
+    "5. Jaki jest glowny cel gracza w Skyrim?\n  a) Zniszczenie Alduina\n  b) Pokonanie Imperium\n  c) Odbicie miasta Whiterun\n  d) Wykonanie misji dla Gildii Zlodziei",
+    "6. Gdzie znajduje sie miasto Whiterun?\n  a) Na poludniowym wschodzie Skyrim\n  b) Na wschodnim wybrzezu\n  c) W centralnej czesci Skyrim\n  d) Na zachodnich wybrzeżach",
+    "7. Kto jest liderem Gildii Zlodziei w Riften?\n  a) Maven Black-Briar\n  b) Astrid\n  c) Mercer Frey\n  d) Brynjolf",
+    "8. Kto jest glownym antagonistą w grze Skyrim?\n  a) Ulfric Stormcloak\n  b) Alduin\n  c) Madanach\n  d) Miraak",
+    "9. Jakie zwierze jest najwiekszym na swiecie w Skyrim?\n  a) Slon\n  b) Smoczy jezdziec\n  c) Drakonid\n  d) Wieloryb blekitny",
+    "10. Kto napisal ksiazke *'The Lusty Argonian Maid'*?\n  a) Wuunferth the Unliving\n  b) Crassius Curio\n  c) J'zargo\n  d) Gaius Desius"
+};
+
+string odpowiedzi[] = {"b", "d", "b", "a", "a", "c", "c", "b", "d", "b"};
 
 int main() {
-    cout << "Podaj imie: " << endl;
+    cout << "Podaj swoje imie: " << endl;
     cin >> imie;
 
-    cout << "Witaj " << imie << "!" << endl;
-    int pkt = 0;
+    cout << "Za chwile rozpocznie sie quiz z gry TES SKYRIM" << endl;
 
+    Sleep(2000);
     system("cls");
-
-    cout << "3..2";
-    Sleep(1000);
-    system("cls");
-    cout << "3..2..1..";
+    cout << "3..";
     Sleep(1000);
     system("cls");
 
-    cout << imie << " witaj w tescie z historii\n" << endl;
-
-    cout <<"Aby wybrac opowiedz kliknij na odpowiedni klawisz na klawiaturze"<<endl;
-
-    cout << "Kiedy byla bitwa pod Grunwaldem?" << endl;
-    cout << "a) 1410" << endl;
-    cout << "b) 1939" << endl;
-    cout << "c) 1200" << endl;
-    cout << "Twoja odpowiedz: ";
-    odp = getch();
-
-    if (odp == 'a') {
-        cout << "Poprawna odpowiedz!";
-        pkt++;
-    } else {
-        cout << "Zle! Poprawna odpowiedz to 1410!";
-    }
-    Sleep(3000);
+    cout << "2..";
+    Sleep(1000);
     system("cls");
 
-    cout << "Kto byl pierwszym krolem Polski?" << endl;
-    cout << "a) Mieszko 1" << endl;
-    cout << "b) Boleslaw Chrobry" << endl;
-    cout << "c) Andrzej Duda" << endl;
-    cout << "Twoja odpowiedz: ";
-    odp = getch();
-    if (odp == 'b') {
-        cout << "Poprawna odpowiedz!";
-        pkt++;
-    } else {
-        cout << "Zle! Poprawna odpowiedz to: Boleslaw Chrobry!";
-    }
-    Sleep(3000);
+    cout << "1..";
+    Sleep(1000);
     system("cls");
 
-    cout << "Kiedy byl chrzest Polski?" << endl;
-    cout << "a) 2001" << endl;
-    cout << "b) 2009" << endl;
-    cout << "c) 966" << endl;
-    cout << "Twoja odpowiedz: ";
-    odp = getch();
-    if (odp == 'c') {
-        cout << "Poprawna odpowiedz!";
-        pkt++;
-    } else {
-        cout << "Zle! Poprawna odpowiedz to: 966!";
+    for (int i = 0; i < 10; i++) {
+        cout << pytanie[i] << endl;
+        string odpowiedz;
+        cout << "Twoja odpowiedz: ";
+        cin >> odpowiedz;
+
+        if (odpowiedz == odpowiedzi[i]) {
+            cout << "Poprawna odpowiedz" << endl;
+            punkty++;
+        } else {
+            cout << "Zla odpowiedz" << endl;
+        }
+
+        cout << endl;
     }
-    Sleep(3000);
-    system("cls");
 
-    cout << "Kiedy upadlo cesarstwo Zachodniorzymskie?" << endl;
-    cout << "a) 476" << endl;
-    cout << "b) 1200" << endl;
-    cout << "c) 99" << endl;
-    cout << "Twoja odpowiedz: ";
-    odp = getch();
-    if (odp == 'a') {
-        cout << "Poprawna odpowiedz!";
-        pkt++;
-    } else {
-        cout << "Zle! Poprawna odpowiedz to: 476!";
+    cout << "Twoj wynik: " << punkty << " na 10" << endl;
+
+    if (punkty < 3) {
+        cout << "Poszlo Ci bardzo slabo" << endl;
+    } else if (punkty >= 3 && punkty < 5) {
+        cout << "Moglo byc lepiej" << endl;
+    } else if (punkty >= 5 && punkty <= 8) {
+        cout << "Poszlo Ci dobrze" << endl;
+    } else if (punkty == 10) {
+        cout << "Poszlo Ci bardzo dobrze!" << endl;
     }
-    Sleep(3000);
-    system("cls");
-
-    cout << "Kiedy Polska wyszla z Unii?" << endl;
-    cout << "a) 2004" << endl;
-    cout << "b) 1899" << endl;
-    cout << "c) Nie wyszla z Unii" << endl;
-    cout << "Twoja odpowiedz: ";
-    odp = getch();
-    if (odp == 'c') {
-        cout << "Poprawna odpowiedz!";
-        pkt++;
-    } else {
-        cout << "Zle! Poprawna odpowiedz to: Nie wyszla z Unii!";
-    }
-    Sleep(3000);
-    system("cls");
-
-    cout << "Twoje zdobyte punkty: " << pkt << endl;
-
-
-  if (pkt == 5) {
-    if (imie.back() != 'a') {
-        cout << "Brawo! Odpowiedziales poprawnie na wszystkie pytania" << endl;
-    } else {
-        cout << "Brawo! Odpowiedzialas poprawnie na wszystkie pytania" << endl;
-    }
-}
-
-if (pkt >=3) {
-    if (imie.back() != 'a') {
-        cout << "Brawo! Odpowiedziales poprawnie na wiekszosc pytan" << endl;
-    } else {
-        cout << "Brawo! Odpowiedzialas poprawnie na wiekszosc pytan" << endl;
-    }
-}
-if (pkt <3) {
-    if (imie.back() != 'a') {
-        cout << "Niestety, odpowiedziales na wiekszosc pytan blednie. Sprobuj ponownie!" << endl;
-    } else {
-        cout << "Niestety, odpowiedzialas na wiekszosc pytan blednie. Sprobuj ponownie!" << endl;
-    }
-}
-
-
-
-
 
     return 0;
 }
